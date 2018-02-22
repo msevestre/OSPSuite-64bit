@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using OSPSuite.FuncParser;
 using OSPSuite.TeXReporting;
@@ -9,6 +8,7 @@ using OSPSuite.TeXReporting.Builder;
 using OSPSuite.Utility.Container;
 using OSPSuite.Utility.Events;
 using OSPSuite_64bit.ORM;
+using SimModelNET;
 
 namespace OSPSuite_64bit
 {
@@ -71,7 +71,18 @@ namespace OSPSuite_64bit
          if (errorData.ErrorNumber == errNumber.err_OK)
             MessageBox.Show(this, "That wasn't supposed to happen");
          else
-            MessageBox.Show(this, $"Can't parse the function. The error is {errorData.ErrorNumber}");
+            MessageBox.Show(this, $"Error is on purpose. The error is {errorData.ErrorNumber}");
+      }
+
+      private void button2_Click(object sender, EventArgs e)
+      {
+         var simulation = new Simulation();
+         XMLSchemaCache.InitializeFromFile("OSPSuite.SimModel.xsd");
+         simulation.LoadFromXMLFile("..\\..\\SimModel4_ExampleInput05.xml");
+         simulation.FinalizeSimulation();
+         simulation.RunSimulation();
+
+         MessageBox.Show("Finished");
       }
    }
 
