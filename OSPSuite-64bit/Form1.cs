@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OSPSuite.FuncParser;
 using OSPSuite.TeXReporting;
 using OSPSuite.TeXReporting.Builder;
 using OSPSuite.Utility.Container;
@@ -51,6 +53,25 @@ namespace OSPSuite_64bit
          };
          var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "dummyreport.pdf");
          await reportCreator.ReportToPDF(buildTrackerFactory.CreateFor<BuildTracker>(path), reportSettings, new []{ "Hi"});
+      }
+
+      private void button1_Click(object sender, EventArgs e)
+      {
+         var parsedFunc = new ParsedFunction();
+
+         parsedFunc.StringToParse = " ";
+         parsedFunc.VariableNames = new List<string> {"x", "y", "z"};
+         parsedFunc.ParameterNames = new List<string>{"p1", "p2"};
+         parsedFunc.ParameterValues = new[] {0.0, 0.0};
+
+         var errorData = new FuncParserErrorData();
+
+         parsedFunc.Parse(errorData);
+
+         if (errorData.ErrorNumber == errNumber.err_OK)
+            MessageBox.Show(this, "That wasn't supposed to happen");
+         else
+            MessageBox.Show(this, $"Can't parse the function. The error is {errorData.ErrorNumber}");
       }
    }
 

@@ -32,6 +32,7 @@
          this.loadModelDataButton = new System.Windows.Forms.Button();
          this.flatModelCalculationMethods = new System.Windows.Forms.DataGridView();
          this.rawQueryDataGrid = new System.Windows.Forms.DataGridView();
+         this.button1 = new System.Windows.Forms.Button();
          ((System.ComponentModel.ISupportInitialize)(this.flatModelCalculationMethods)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.rawQueryDataGrid)).BeginInit();
          this.SuspendLayout();
@@ -72,11 +73,22 @@
          this.rawQueryDataGrid.Size = new System.Drawing.Size(602, 273);
          this.rawQueryDataGrid.TabIndex = 3;
          // 
+         // button1
+         // 
+         this.button1.Location = new System.Drawing.Point(265, 46);
+         this.button1.Name = "button1";
+         this.button1.Size = new System.Drawing.Size(118, 23);
+         this.button1.TabIndex = 4;
+         this.button1.Text = "Parse a Func";
+         this.button1.UseVisualStyleBackColor = true;
+         this.button1.Click += new System.EventHandler(this.button1_Click);
+         // 
          // Form1
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(1309, 515);
+         this.Controls.Add(this.button1);
          this.Controls.Add(this.rawQueryDataGrid);
          this.Controls.Add(this.flatModelCalculationMethods);
          this.Controls.Add(this.loadModelDataButton);
@@ -95,6 +107,7 @@
       private System.Windows.Forms.Button loadModelDataButton;
       private System.Windows.Forms.DataGridView flatModelCalculationMethods;
       private System.Windows.Forms.DataGridView rawQueryDataGrid;
+      private System.Windows.Forms.Button button1;
    }
 }
 
