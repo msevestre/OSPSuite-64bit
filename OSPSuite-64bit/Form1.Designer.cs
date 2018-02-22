@@ -42,8 +42,9 @@
          this.generateReportButton.Name = "generateReportButton";
          this.generateReportButton.Size = new System.Drawing.Size(75, 23);
          this.generateReportButton.TabIndex = 0;
-         this.generateReportButton.Text = "button1";
+         this.generateReportButton.Text = "Report";
          this.generateReportButton.UseVisualStyleBackColor = true;
+         this.generateReportButton.Click += new System.EventHandler(this.generateReportButton_Click);
          // 
          // loadModelDataButton
          // 
