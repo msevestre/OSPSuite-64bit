@@ -89,7 +89,7 @@ namespace OSPSuite_64bit.ORM
       public DbGateway(IModelDatabase modelDatabase)
       {
          _modelDatabase = modelDatabase;
-         _modelDatabase.Connect("..\\..\\..\\db\\PKSimDB.sqlite");
+         _modelDatabase.Connect("PKSimDB.sqlite");
       }
 
       public virtual DataTable ExecuteStatementForDataTable(string selectStatement)

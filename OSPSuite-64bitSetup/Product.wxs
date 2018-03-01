@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="1976261c-7cfc-4759-bb37-611891382f53" Name="OSPSuite_64bitSetup" Language="1033" Version="1.0.0.0" Manufacturer="Open Systems Pharma" UpgradeCode="0340b1c2-70de-4735-88d9-22c3d6b633d4">
+		<Package 
+		  Platform="x64"
+      InstallerVersion="200" 
+      Compressed="yes" 
+      InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="OSPSuite_64bitSetup" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="templates"/>
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFiles64Folder">
+				<Directory Id="INSTALLFOLDER" Name="OSPSuite_64bit" >
+          <Directory Id="STANDARDTEMPLATE" Name="StandardTemplate"/>
+        </Directory>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+    <ComponentGroup Id="templates" Directory="STANDARDTEMPLATE">
+      <Component Win64="yes" Id="StandardTemplate.tex">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\StandardTemplate.tex" />
+      </Component>
+
+      <Component Win64="yes" Id="OSPSuite.sty">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\OSPSuite.sty" />
+      </Component>
+
+      <Component Win64="yes" Id="StandardTemplate.json">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\StandardTemplate.json" />
+      </Component>
+      
+    </ComponentGroup>
+    
+	  <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+	    <Component Win64="yes" Id="ProductComponent">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetPath)" />
+	    </Component>
+
+
+      <Component Win64="yes" Id="castle">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\Castle.Core.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="castle.windsor">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\Castle.Windsor.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="DCI6_1.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\DCI6_1.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="EntityFramework.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\EntityFramework.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="EntityFramework.SqlServer.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\EntityFramework.SqlServer.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="MathNet.Numerics.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\MathNet.Numerics.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="MPFitLib.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\MPFitLib.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="OSPSuite.FuncParser.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\OSPSuite.FuncParser.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="OSPSuite.SimModel.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\OSPSuite.SimModel.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="OSPSuite.SimModelSolver_CVODES282.dll">
+        <File Source="$(var.OSPSuite-64bit.TargetDir)\OSPSuite.SimModelSolver_CVODES282.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="OSPSuite.TeXReporting.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\OSPSuite.TeXReporting.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="OSPSuite.Utility.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\OSPSuite.Utility.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="OSPSuite_SimModelComp.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\OSPSuite_SimModelComp.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="System.Data.SQLite.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\System.Data.SQLite.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="System.Data.SQLite.EF6.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\System.Data.SQLite.EF6.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="System.Data.SQLite.Linq.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\System.Data.SQLite.Linq.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="System.ValueTuple.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\System.ValueTuple.dll" />
+      </Component>
+
+      <Component Win64="yes" Id="OSPSuite.SimModel.xsd">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\OSPSuite.SimModel.xsd" />
+      </Component>
+
+      <Component Win64="yes" Id="PKSimDB.sqlite">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\PKSimDB.sqlite" />
+      </Component>
+
+      <Component Win64="yes" Id="SimModel4_ExampleInput05.xml">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\SimModel4_ExampleInput05.xml" />
+      </Component>
+
+      <Component  Win64="yes" Id="SQLite.Interop.dll">
+        <File ProcessorArchitecture="x64" Source="$(var.OSPSuite-64bit.TargetDir)\x64\SQLite.Interop.dll" />
+      </Component>
+	  </ComponentGroup>
+	</Fragment>
+</Wix>

@@ -47,7 +47,7 @@ namespace OSPSuite_64bit
             Software = "SBSuite",
             SubTitle = "SubTitle",
             SoftwareVersion = "5.2",
-            TemplateFolder = "..\\..\\StandardTemplate",
+            TemplateFolder = ".\\StandardTemplate",
             ContentFileName = "Content",
             DeleteWorkingDir = true
          };
@@ -78,7 +78,7 @@ namespace OSPSuite_64bit
       {
          var simulation = new Simulation();
          XMLSchemaCache.InitializeFromFile("OSPSuite.SimModel.xsd");
-         simulation.LoadFromXMLFile("..\\..\\SimModel4_ExampleInput05.xml");
+         simulation.LoadFromXMLFile(".\\SimModel4_ExampleInput05.xml");
          simulation.FinalizeSimulation();
          simulation.RunSimulation();
 
